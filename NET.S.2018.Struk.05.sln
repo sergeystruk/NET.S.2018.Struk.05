@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegerReceiver", "IntegerR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegerReceiver.Tests", "IntegerReceiver.Tests\IntegerReceiver.Tests.csproj", "{3C2CC28D-C71E-417A-8E3A-5C004C0076B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatestCommonDivisor", "GreatestCommonDivisor\GreatestCommonDivisor.csproj", "{1AA75DB2-D61C-4919-BFBA-5CB48A51729D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreatestCommonDivesor.Tests", "GreatestCommonDivesor.Tests\GreatestCommonDivesor.Tests.csproj", "{EE099EFB-FA2A-4CCD-885E-0ACE1EA70CBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3C2CC28D-C71E-417A-8E3A-5C004C0076B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C2CC28D-C71E-417A-8E3A-5C004C0076B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C2CC28D-C71E-417A-8E3A-5C004C0076B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AA75DB2-D61C-4919-BFBA-5CB48A51729D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AA75DB2-D61C-4919-BFBA-5CB48A51729D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AA75DB2-D61C-4919-BFBA-5CB48A51729D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AA75DB2-D61C-4919-BFBA-5CB48A51729D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE099EFB-FA2A-4CCD-885E-0ACE1EA70CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE099EFB-FA2A-4CCD-885E-0ACE1EA70CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE099EFB-FA2A-4CCD-885E-0ACE1EA70CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE099EFB-FA2A-4CCD-885E-0ACE1EA70CBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
