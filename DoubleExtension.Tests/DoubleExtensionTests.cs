@@ -17,6 +17,6 @@ namespace DoubleExtension.Tests
             "0111111111110000000000000000000000000000000000000000000000000000")]
         [TestCase(-0.0, ExpectedResult = "1000000000000000000000000000000000000000000000000000000000000000")]
         [TestCase(0.0, ExpectedResult = "0000000000000000000000000000000000000000000000000000000000000000")]
-        public string ToBinaryDouble_Tests(double value) => StringExtension.StringExtension.ToBinaryDouble(value);
+        public string ToBinaryDouble_Tests(double value) => StringExtension.DoubleExtension.ToBinaryDouble(value);
     }
 }

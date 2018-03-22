@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7335E66E-3A65-4730-87C3-DE505A45A42B}</ProjectGuid>
+    <ProjectGuid>{6575B33E-1B9C-4A94-90CE-DD8B38480C9D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StringExtension</RootNamespace>
-    <AssemblyName>StringExtension</AssemblyName>
+    <RootNamespace>IntegerReceiver</RootNamespace>
+    <AssemblyName>IntegerReceiver</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,9 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LongExtension.cs" />
-    <Compile Include="StringBuilderExtensions.cs" />
-    <Compile Include="StringExtension.cs" />
+    <Compile Include="CharExtension.cs" />
+    <Compile Include="StringConvertor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

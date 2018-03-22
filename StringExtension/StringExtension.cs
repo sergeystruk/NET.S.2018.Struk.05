@@ -6,8 +6,20 @@ using System.Threading.Tasks;
 
 namespace StringExtension
 {
-    public static class StringExtension
+    /// <summary>
+    /// Gives extension methods for double type
+    /// </summary>
+    public static class DoubleExtension
     {
+        /// <summary>
+        /// Converts double to string in format IEEE754
+        /// </summary>
+        /// <param name="value">
+        /// Double value, which needs to be converted
+        /// </param>
+        /// <returns>
+        /// String performanse of double value in IEEE754 format
+        /// </returns>
         public static string ToBinaryDouble(this double value)
         {
             long integerPart = Math.Abs((long)(value - value % 1));
@@ -69,42 +81,5 @@ namespace StringExtension
 
             return result.ToString();
         }
-
-        public static StringBuilder ToBinary(this long value)
-        {
-            StringBuilder sb = new StringBuilder();
-            long b;
-            while (value != 0)
-            {
-                b = value % 2;
-                sb.Append(b);
-                value /= 2;
-            }
-
-            return sb.Reverse();
-        }
-        public static StringBuilder Reverse(this StringBuilder sb)
-        {
-            StringBuilder newStringBuilder = new StringBuilder(sb.Length);
-            for (int i = sb.Length - 1; i >= 0; i--)
-            {
-                newStringBuilder.Append(sb[i]);
-            }
-
-            return newStringBuilder;
-        }
-        public static int IndexOf(this StringBuilder sb, char elem)
-        {
-            for (int i = 0; i < sb.Length; i++)
-            {
-                if (sb[i] == elem)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
-        }
-
     }
 }
