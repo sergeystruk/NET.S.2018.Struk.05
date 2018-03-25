@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Runtime.InteropServices;
 using System.Text;
 
 namespace StringExtension
@@ -6,77 +6,59 @@ namespace StringExtension
     /// <summary>
     /// Gives extension methods for double type
     /// </summary>
-    public static class DoubleExtension
+    public static class NumberRepresentationConverter
     {
         /// <summary>
-        /// Converts double to string in format IEEE754
+        /// Gets string representation of double in IEEE754 format
         /// </summary>
-        /// <param name="value">
-        /// Double value, which needs to be converted
+        /// <param name="number">
+        /// Double number 
         /// </param>
         /// <returns>
-        /// String performanse of double value in IEEE754 format
+        /// String representation of number
         /// </returns>
-        public static string ToBinaryDouble(this double value)
+        public static string DoubleToBinaryString(this double number)
         {
-            long integerPart = Math.Abs((long)(value - value % 1));
-            StringBuilder integerPartStringBuilder = integerPart.ToBinary();
-            StringBuilder fractionStringBuilder = new StringBuilder();
+            DoubleToLongStruct d = new DoubleToLongStruct(number);
+            StringBuilder sb = new StringBuilder();
 
-            double fraction = Math.Abs(value % 1);
-            for (int i = 0; i < 52; i++)
+            if (number > 0)
             {
-                fractionStringBuilder.Append((int)(fraction * 2) / 1);
-                fraction = (fraction * 2) % 1;
-            }
-
-            long exponent;
-
-            if (integerPartStringBuilder.IndexOf('1') != -1)
-            {
-                exponent = 1024 + integerPartStringBuilder.Length - 1 - integerPartStringBuilder.IndexOf('1') - 1;
+                sb.Append(0);
             }
             else
             {
-                exponent = 1024 - (fractionStringBuilder.IndexOf('1') + 1) - 1;
+                sb.Append(1);
             }
 
-            StringBuilder mantisse = new StringBuilder();
-            if (integerPartStringBuilder.IndexOf('1') != -1)
+            sb.Append(d.Long64Bits.ToBinary());
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Struct to work with memory allocation
+        /// </summary>
+        [StructLayout(LayoutKind.Explicit)]
+        private struct DoubleToLongStruct
+        {
+            [FieldOffset(0)]
+            private readonly long long64bits;
+
+            [FieldOffset(0)]
+            private double double64bits;
+
+            public long Long64Bits => long64bits;
+
+           /// <summary>
+           /// Construction to set the value of number
+           /// </summary>
+           /// <param name="val">
+           /// Exact value
+           /// </param>
+            public DoubleToLongStruct(double val) : this()
             {
-                for (int i = integerPartStringBuilder.IndexOf('1'); i < integerPartStringBuilder.Length; i++)
-                {
-                    if (i == integerPartStringBuilder.IndexOf('1'))
-                    {
-                        continue;
-                    }
-                    mantisse.Append(integerPartStringBuilder[i]);
-                }
-
-                for (int i = 0; i <= 52 - integerPartStringBuilder.Length - integerPartStringBuilder.IndexOf('1'); i++)
-                {
-                    mantisse.Append(fractionStringBuilder[i]);
-                }
+                this.double64bits = val;
             }
-
-            else
-            {
-                for (int i = fractionStringBuilder.IndexOf('1'); i < fractionStringBuilder.Length; i++)
-                {
-                    if (i == fractionStringBuilder.IndexOf('1'))
-                    {
-                        continue;
-                    }
-                    mantisse.Append(fractionStringBuilder[i]);
-                }
-            }
-
-            StringBuilder result = new StringBuilder();
-            result.Append(value > 0 ? 0 : 1);
-            result.Append(exponent.ToBinary());
-            result.Append(mantisse);
-
-            return result.ToString();
         }
     }
 }
